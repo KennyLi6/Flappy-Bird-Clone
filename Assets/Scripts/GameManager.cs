@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     private float _timeUntilSpawn = 0f;
 
+    // TODO: Event listener for Player Collision Event
+
     private void Update()
     {
         _timeUntilSpawn -= Time.deltaTime;
