@@ -229,6 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b39f0297c995cc499018bb273b230f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PipeMovement
+  _moveSpeed: 0.1
+  _despawnTime: 4
 --- !u!1 &8679156107878445091
 GameObject:
   m_ObjectHideFlags: 0

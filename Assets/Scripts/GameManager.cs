@@ -3,31 +3,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject pipesPrefab;
-    [SerializeField] private GameObject spawnLocation;
-    [SerializeField] private float timeBetweenSpawn = 2f;
-    private float timeUntilSpawn;
-    private List<GameObject> pooledPipes;
-    private int amountToPool = 3;
+    [SerializeField] private GameObject _pipesPrefab;
+    [SerializeField] private GameObject _spawnLocation;
+    [SerializeField] private float _timeBetweenSpawn = 2f;
 
-    private void Start()
-    {
-        pooledPipes = new List<GameObject>();
-        GameObject temp;
-        for (int i = 0; i < amountToPool; i++)
-        {
-            temp = Instantiate(pipesPrefab);
-            temp.SetActive(false);
-            pooledPipes.Add(temp);
-        }
-    }
+    private float _timeUntilSpawn = 0f;
 
     private void Update()
     {
-        timeUntilSpawn -= Time.deltaTime;
-        if (timeUntilSpawn <= 0)
+        _timeUntilSpawn -= Time.deltaTime;
+        if (_timeUntilSpawn <= 0)
         {
-            timeUntilSpawn = timeBetweenSpawn;
+            Debug.Log("Spawning pipes");
+            _timeUntilSpawn = _timeBetweenSpawn;
+            ObjectPoolManager.SpawnObject(_pipesPrefab, _spawnLocation.transform.position, Quaternion.identity);
         }
     }
 

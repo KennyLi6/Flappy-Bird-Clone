@@ -1,17 +1,25 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PipeMovement : MonoBehaviour
 {
-    private Transform transform;
+    [SerializeField] private float _moveSpeed = .25f;
+    [SerializeField] private float _despawnTime = 3.5f;
 
-    private void Awake()
+    private void OnEnable()
     {
-        transform = GetComponent<Transform>();
+        StartCoroutine(Destroy());
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        transform.Translate(-3,0,0);
+        gameObject.transform.Translate(-_moveSpeed,0,0);
     }
 
+    private IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(_despawnTime);
+        ObjectPoolManager.ReturnObjectToPool(gameObject);
+    }
 }

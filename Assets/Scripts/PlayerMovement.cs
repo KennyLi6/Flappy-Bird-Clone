@@ -22,6 +22,5 @@ public class PlayerMovement : MonoBehaviour
     private void GameInput_OnJumpAction(object sender, System.EventArgs e)
     {
         rb.linearVelocityY = jumpForce;
-        Debug.Log("jumping");
     }
 }
