@@ -57,7 +57,6 @@ public class ObjectPoolManager : MonoBehaviour
 
     private static GameObject CreateObject(GameObject prefab, Vector3 pos, Quaternion rot, PoolType poolType = PoolType.GameObjects)
     {
-        Debug.Log("creating game object");
         prefab.SetActive(false);
 
         GameObject obj = Instantiate(prefab, pos, rot);
@@ -93,10 +92,8 @@ public class ObjectPoolManager : MonoBehaviour
         switch (poolType)
         {
             case PoolType.GameObjects:
-                Debug.Log("adding to gameobjectsempty");
                 return _gameObjectsEmpty;
             default:
-                Debug.Log("returning null");
                 return null;
         }
     }
@@ -106,9 +103,7 @@ public class ObjectPoolManager : MonoBehaviour
         // where T : Object constrains T to Unity objects
         if (!_objectPools.ContainsKey(objectToSpawn))
         {
-            Debug.Log("Adding to pool: "+ objectToSpawn);
             CreatePool(objectToSpawn, spawnPos, spawnRot, poolType);
-            Debug.Log(_objectPools[objectToSpawn]);
         }
 
         GameObject obj = _objectPools[objectToSpawn].Get();

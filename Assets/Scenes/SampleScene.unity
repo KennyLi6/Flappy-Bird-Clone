@@ -179,8 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96012ccac67a70e4bb06f8f24b94f50a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  gameInput: {fileID: 1690805894}
-  jumpForce: 5
+  _gameInput: {fileID: 1690805894}
+  _jumpForce: 5
 --- !u!212 &8853032
 SpriteRenderer:
   serializedVersion: 2
@@ -357,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0db355521952d54291d65b2a3812c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _gameInput: {fileID: 1690805894}
   _pipesPrefab: {fileID: 5522259999633209213, guid: 13ffbcd76a6f08242918b23350db5a5e, type: 3}
   _spawnLocation: {fileID: 2056604039}
   _timeBetweenSpawn: 2

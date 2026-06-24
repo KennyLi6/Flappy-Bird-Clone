@@ -5,22 +5,27 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private GameInput gameInput;
-    [SerializeField] private float jumpForce = 5;
-    private Rigidbody2D rb;
+    [SerializeField] private GameInput _gameInput;
+    [SerializeField] private float _jumpForce = 5;
+    private Rigidbody2D _rb;
     
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
-        gameInput.OnJumpAction += GameInput_OnJumpAction;
+        _gameInput.OnJumpAction += GameInput_OnJumpAction;
     }
 
     private void GameInput_OnJumpAction(object sender, System.EventArgs e)
     {
-        rb.linearVelocityY = jumpForce;
+        _rb.linearVelocityY = _jumpForce;
+    }
+
+    private void OnDisable()
+    {
+        _gameInput.OnJumpAction -= GameInput_OnJumpAction;
     }
 }

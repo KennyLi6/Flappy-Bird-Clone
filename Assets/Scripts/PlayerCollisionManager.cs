@@ -9,12 +9,16 @@ public class PlayerCollisionManager : MonoBehaviour
     // End game if Obstacle
     // OnCollisionExit with Point layer Add Point
 
-    private void OisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == OBSTACLE_LAYER)
         {
             // End game
-            // timescale = 0?
+            // Currently works, but maybe better to set pipespeed to 0
+            // and stop spawn timer counting to allow for player rb
+            // to play out physics for game feel
+            Time.timeScale = 0;
+            Debug.Log(collision);
         }
         if (collision.gameObject.layer == POINT_LAYER)
         {
