@@ -1,0 +1,53 @@
+:root {
+}
+
+.panel {
+    background-color: rgb(166, 96, 250);
+    align-items: center;
+    justify-content: center;
+}
+
+.menu {
+    background-color: rgb(72, 0, 159);
+    width: 400px;
+    height: auto;
+    max-height: 553px;
+    align-items: stretch;
+    align-self: auto;
+    justify-content: flex-start;
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
+    border-bottom-right-radius: 17px;
+    border-bottom-left-radius: 17px;
+    border-top-width: 12px;
+    border-right-width: 12px;
+    border-bottom-width: 12px;
+    border-left-width: 12px;
+}
+
+.unity-button {
+    flex-grow: 1;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-left-width: 10px;
+    border-top-width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+    border-left-color: rgb(97, 0, 217);
+    border-right-color: rgb(97, 0, 217);
+    border-top-color: rgb(97, 0, 217);
+    border-bottom-color: rgb(97, 0, 217);
+    background-color: rgb(184, 137, 241);
+    font-size: 69px;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+}
+
+.unity-button:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(214, 56, 160);
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
