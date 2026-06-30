@@ -544,6 +544,8 @@ MonoBehaviour:
   _pipesPrefab: {fileID: 5522259999633209213, guid: 13ffbcd76a6f08242918b23350db5a5e, type: 3}
   _spawnLocation: {fileID: 2056604039}
   _timeBetweenSpawn: 2
+  _minVariance: -5
+  _maxVariance: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +1097,7 @@ Transform:
   m_GameObject: {fileID: 2056604039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.35, y: -0.137, z: 0}
+  m_LocalPosition: {x: 8.35, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

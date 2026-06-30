@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,8 +11,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _pipesPrefab;
     [SerializeField] private GameObject _spawnLocation;
     [SerializeField] private float _timeBetweenSpawn = 2f;
+    [SerializeField] private float _minVariance = -50f;
+    [SerializeField] private float _maxVariance = 50f;
 
-    private const int SCENE_TO_RELOAD = 0;
+    private const string SCENE_TO_RELOAD = "GameScene";
 
     private float _timeUntilSpawn = 0f;
     private int _playerScore = 0;
@@ -45,7 +46,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(SCENE_TO_RELOAD);
     }
-    // TODO: Event listener for Player Collision Event
 
     private void Update()
     {
@@ -53,7 +53,11 @@ public class GameManager : MonoBehaviour
         if (_timeUntilSpawn <= 0)
         {
             _timeUntilSpawn = _timeBetweenSpawn;
-            ObjectPoolManager.SpawnObject(_pipesPrefab, _spawnLocation.transform.position, Quaternion.identity);
+            ObjectPoolManager.SpawnObject(
+                _pipesPrefab, 
+                new Vector3 (_spawnLocation.transform.position.x, _spawnLocation.transform.position.y + Random.Range(_minVariance, _maxVariance), _spawnLocation.transform.position.z),
+                Quaternion.identity
+            );
         }
     }
 
